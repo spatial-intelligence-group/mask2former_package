@@ -13,6 +13,8 @@ pip install git+https://github.com/v-pnk/Mask2Former.git@package
 
 Note that [`detectron2`](https://github.com/facebookresearch/detectron2/tree/main/) used by Mask2Former requires PyTorch to be installed at build time, but does not specify so. Therefore, you have to install PyTorch before trying to installing Mask2Former.
 
+If your installation of CUDA toolkit is not in `/usr/local/cuda`, you have to set the environment variable `CUDA_HOME`.
+
 ## Basic Usage
 
 TODO: Link to the anonymization repository for the basic usage example.
