@@ -1,7 +1,8 @@
 [build-system]
 requires = [
     "hatchling", 
-    "setuptools", 
+    "setuptools",
+    "packaging", 
     "torch", 
     "numpy"
 ]
@@ -22,6 +23,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
+    "numpy",
     "torch>=1.9",
     "torchvision",
     "cython",

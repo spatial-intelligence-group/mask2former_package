@@ -7,7 +7,11 @@ This is a packaged version of the Mask2Former repository limited to segmentation
 
 Both packages can be installed via pip directly from the repository:
 
-TODO: Add pip install command once we know the remote location of the repository.
+```bash
+pip install git+https://github.com/v-pnk/Mask2Former.git@package
+```
+
+Note that [`detectron2`](https://github.com/facebookresearch/detectron2/tree/main/) used by Mask2Former requires PyTorch to be installed at build time, but does not specify so. Therefore, you have to install PyTorch before trying to installing Mask2Former.
 
 ## Basic Usage
 
