@@ -1,0 +1,52 @@
+[build-system]
+requires = [
+    "hatchling", 
+    "setuptools", 
+    "torch", 
+    "numpy"
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "mask2former"
+version = "0.1.0"
+description = "Packaged Mask2Former"
+authors = [
+    { name = "Author Name", email = "author@example.com" }
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "torch>=1.9",
+    "torchvision",
+    "cython",
+    "scipy",
+    "shapely",
+    "timm",
+    "h5py",
+    "submitit",
+    "scikit-image",
+    "detectron2@git+https://github.com/facebookresearch/detectron2.git",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build]
+sources = ["src"]
+package-root = "src"
+include = [
+    "src/mask2former/configs/**/*.yaml", 
+    "src/MultiScaleDeformableAttention/src/**/*", # include the C++/CUDA source files so wheel building works
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mask2former", "src/MultiScaleDeformableAttention"]
+
+# Build the MSDeformAttn CUDA kernel using the default hatch_build.py script
+[tool.hatch.build.hooks.custom]
