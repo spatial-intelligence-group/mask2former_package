@@ -21,7 +21,7 @@ class CustomBuildHook(BuildHookInterface):
     def initialize(self, version, build_data):
         print(">> Compiling CUDA extension...")
 
-        root_dir = Path(__file__).parent.resolve()
+        root_dir = Path(self.root)
 
         # The directory structure used for the sdist preparation
         extensions_dir = root_dir / "src" / "MultiScaleDeformableAttention" / "src"
@@ -63,7 +63,8 @@ class CustomBuildHook(BuildHookInterface):
             name="MultiScaleDeformableAttention",
             ext_modules=[ext],
             cmdclass={"build_ext": BuildExtension},
-            script_args=["build_ext", "--inplace"],
+            script_args=["build_ext", "--build-lib", str(output_dir)],
+            # script_args=["build_ext", "--inplace"],
         )
 
         print(">> Done building CUDA extension.")
