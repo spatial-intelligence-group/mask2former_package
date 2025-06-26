@@ -64,7 +64,6 @@ class CustomBuildHook(BuildHookInterface):
             ext_modules=[ext],
             cmdclass={"build_ext": BuildExtension},
             script_args=["build_ext", "--build-lib", str(output_dir)],
-            # script_args=["build_ext", "--inplace"],
         )
 
         print(">> Done building CUDA extension.")
