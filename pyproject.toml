@@ -15,7 +15,7 @@ description = "Packaged Mask2Former"
 authors = [
     { name = "Author Name", email = "author@example.com" }
 ]
-license = "MIT"
+license = {file = "LICENSE"}
 readme = "README.md"
 requires-python = ">=3.6"
 classifiers = [
